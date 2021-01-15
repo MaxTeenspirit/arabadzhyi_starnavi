@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchTableSize, addSelected } from '../../redux/actions';
 import Select from '../../components/Select/Select';
+import Loader from "../../components/Loader/Loader";
 
 class SelectContainer extends React.Component {
   constructor(props) {
@@ -37,6 +38,11 @@ class SelectContainer extends React.Component {
 
   render() {
     const { options } = this.state;
+    const { selected } = this.props;
+
+    if(!selected) {
+      return <Loader />
+    }
     return (
       <section>
         <Select options={options} handleChange={this.handleChange} />
@@ -46,7 +52,12 @@ class SelectContainer extends React.Component {
   }
 };
 
-const mapStateToProps = state => state.data;
+const mapStateToProps = state => {
+  return {
+    data: state.data.data,
+    selected: state.data.selected
+  }
+};
 
 export default connect(mapStateToProps, {
   fetchTableSize,
