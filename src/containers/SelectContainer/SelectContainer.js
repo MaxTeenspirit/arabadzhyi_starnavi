@@ -35,7 +35,7 @@ class SelectContainer extends React.Component {
   }
 
   handleChange = event => {
-    this.setState({selected: event.target.value})
+    this.setState({selected: Number(event.target.value)})
   }
 
   handleButton = () => {

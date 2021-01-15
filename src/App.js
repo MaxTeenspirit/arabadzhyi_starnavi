@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.scss';
-import { useSelector } from "react-redux";
-import SelectContainer from './containers/SelectContainer/SelectContainer';
+import MainContainer from "./containers/MainContainer/MainContainer";
 
 function App() {
-  const isValue = useSelector(state => state.data.selected);
-
   return (
     <div className="App">
-      <SelectContainer />
+      <MainContainer />
     </div>
   );
 }
