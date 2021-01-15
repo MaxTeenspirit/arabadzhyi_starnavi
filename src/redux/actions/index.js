@@ -4,7 +4,8 @@ import {
   ERROR_TABLE_SIZES,
   ADD_TO_HISTORY,
   CLEAR_HISTORY,
-  ADD_SELECTED
+  ADD_SELECTED,
+  TOGGLE_START
 } from '../constants';
 
 export function fetchTableSize() {
@@ -46,5 +47,12 @@ export function addToHistory(data) {
 export function clearHistory() {
   return {
     type: CLEAR_HISTORY
+  }
+};
+
+export function toggleStart(start) {
+  return {
+    type: TOGGLE_START,
+    payload: start
   }
 };

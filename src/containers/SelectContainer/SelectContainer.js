@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchTableSize, addSelected } from '../../redux/actions';
+import { fetchTableSize, addSelected, toggleStart, clearHistory } from '../../redux/actions';
 import Select from '../../components/Select/Select';
 import Loader from "../../components/Loader/Loader";
 
@@ -10,6 +10,7 @@ class SelectContainer extends React.Component {
     this.state = {
       selected: null,
       options: [],
+      button: true,
     }
   }
 
@@ -22,6 +23,7 @@ class SelectContainer extends React.Component {
       this.handleOptions(this.props.data);
     }
     if(prevState.selected !== this.state.selected) this.props.addSelected(this.state.selected);
+    if(prevProps.start && !this.props.start) this.props.clearHistory();
   }
 
   handleOptions = data => {
@@ -36,17 +38,23 @@ class SelectContainer extends React.Component {
     this.setState({selected: event.target.value})
   }
 
-  render() {
-    const { options } = this.state;
-    const { selected } = this.props;
+  handleButton = () => {
+    this.setState({button: !this.state.button}, () => {
+      this.props.toggleStart(!this.state.button);
+    });
+  }
 
+  render() {
+    const { options, button } = this.state;
+    const { selected } = this.props;
+    const buttonTitle = button ? 'START' : 'STOP';
     if(!selected) {
       return <Loader />
     }
     return (
-      <section>
+      <section className='select-wrapper'>
         <Select options={options} handleChange={this.handleChange} />
-        <h1>{this.state.selected}</h1>
+        <button onClick={this.handleButton} className='main-button'>{buttonTitle}</button>
       </section>
     )
   }
@@ -55,11 +63,14 @@ class SelectContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     data: state.data.data,
-    selected: state.data.selected
+    selected: state.data.selected,
+    start: state.history.start
   }
 };
 
 export default connect(mapStateToProps, {
   fetchTableSize,
-  addSelected
+  addSelected,
+  toggleStart,
+  clearHistory
 })(SelectContainer);

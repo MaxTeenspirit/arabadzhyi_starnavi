@@ -3,11 +3,13 @@ import {
   CLEAR_HISTORY,
   ADD_TABLE_SIZES,
   ERROR_TABLE_SIZES,
-  ADD_SELECTED
+  ADD_SELECTED,
+  TOGGLE_START
 } from '../constants';
 
 const initialHistoryState = {
-  history: []
+  history: [],
+  start: false
 };
 
 const initialDataReducer = {
@@ -18,6 +20,12 @@ const initialDataReducer = {
 
 export function historyReducer(state = initialHistoryState, action) {
   switch (action.type){
+    case TOGGLE_START: {
+      return {
+        ...state,
+        start: action.payload
+      }
+    }
     case ADD_TO_HISTORY: {
       return {
         history: [...state, action.payload]

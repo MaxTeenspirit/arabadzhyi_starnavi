@@ -3,3 +3,4 @@ export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const ADD_TABLE_SIZES = 'ADD_TABLE_SIZES';
 export const ERROR_TABLE_SIZES = 'ERROR_TABLE_SIZES';
 export const ADD_SELECTED = 'ADD_SELECTED';
+export const TOGGLE_START = 'TOGGLE_START';

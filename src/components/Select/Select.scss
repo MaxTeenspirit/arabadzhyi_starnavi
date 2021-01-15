@@ -1,0 +1,26 @@
+@import '../../helpers/pxrem.scss';
+
+.select-wrapper {
+  display: flex;
+  width: rem(200);
+  justify-content: space-between;
+  select {
+    width: rem(115);
+    height: rem(30);
+    appearance: none;
+    background-image: url("../../assets/arrow-down.png");
+    background-size: rem(12);
+    background-repeat: no-repeat;
+    background-position: rem(95);
+    padding: rem(5);
+    border: rem(1) solid #777;
+  }
+  .main-button {
+    background-color: #0075D8;
+    border-radius: rem(3);
+    width: rem(70);
+    height: rem(30);
+    color: white;
+    border: none;
+  }
+}
