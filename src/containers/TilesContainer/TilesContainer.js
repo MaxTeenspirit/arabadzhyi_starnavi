@@ -1,18 +1,22 @@
 import React from 'react';
 import './TilesContainer.scss';
 import {connect} from 'react-redux';
+import TilesBoard from "../../components/TilesBoard/TilesBoard";
+import { addToHistory } from '../../redux/actions';
 
 class TilesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: null
+      size: null,
+      tiles: []
     };
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if(prevProps.selected !== this.props.selected) {
-      this.setState({size: this.props.selected}, () => (
-        this.createTilesArray(this.props.selected)
+    const { selected } = this.props;
+    if(prevProps.selected !== selected) {
+      this.setState({size: selected}, () => (
+        this.setState({tiles: this.createTilesArray(selected)})
       ));
     }
   }
@@ -33,9 +37,11 @@ class TilesContainer extends React.Component {
   };
 
   render() {
+    const { tiles } = this.state;
+    const { addToHistory } = this.props;
     return(
       <section className='tiles-container'>
-        <h1>{this.state.size}</h1>
+        <TilesBoard tiles={tiles} addToHistory={addToHistory} />
       </section>
     )
   }
@@ -47,4 +53,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(TilesContainer);
+export default connect(mapStateToProps, {
+  addToHistory
+})(TilesContainer);

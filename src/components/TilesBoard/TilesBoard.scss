@@ -1,0 +1,19 @@
+@import '../../helpers/pxrem.scss';
+
+.tiles-board {
+  border: rem(0.5) solid #7D7D7D;
+  box-sizing: border-box;
+  display: inline-block;
+  .row {
+    display: flex;
+    .tile {
+      box-sizing: border-box;
+      width: rem(40);
+      height: rem(40);
+      border: rem(0.5) solid #7D7D7D;
+      &:hover {
+        background-color: #0EA8F4;
+      }
+    }
+  }
+}

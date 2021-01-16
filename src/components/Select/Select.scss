@@ -2,8 +2,9 @@
 
 .select-wrapper {
   display: flex;
-  width: rem(200);
+  width: rem(203);
   justify-content: space-between;
+  margin-bottom: rem(20);
   select {
     width: rem(115);
     height: rem(30);

@@ -28,7 +28,8 @@ export function historyReducer(state = initialHistoryState, action) {
     }
     case ADD_TO_HISTORY: {
       return {
-        history: [...state, action.payload]
+        ...state,
+        history: [...state.history, action.payload]
       }
     }
     case CLEAR_HISTORY: {

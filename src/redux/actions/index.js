@@ -34,12 +34,12 @@ export function addSelected(selected) {
   }
 }
 
-export function addToHistory(data) {
+export function addToHistory(row, col) {
   return {
     type: ADD_TO_HISTORY,
     payload: {
-      row: data.row,
-      col: data.col
+      row: row,
+      col: col
     }
   }
 };
