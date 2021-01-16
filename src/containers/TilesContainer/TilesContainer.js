@@ -38,10 +38,10 @@ class TilesContainer extends React.Component {
 
   render() {
     const { tiles } = this.state;
-    const { addToHistory } = this.props;
+    const { addToHistory, start } = this.props;
     return(
       <section className='tiles-container'>
-        <TilesBoard tiles={tiles} addToHistory={addToHistory} />
+        <TilesBoard tiles={tiles} addToHistory={addToHistory} start={start} />
       </section>
     )
   }
@@ -50,6 +50,7 @@ class TilesContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     selected: state.data.selected,
+    start: state.history.start
   }
 }
 

@@ -1,0 +1,15 @@
+@import '../../helpers/pxrem.scss';
+
+.history-item {
+  width: rem(200);
+  padding: rem(10) rem(15);
+  background-color: #FCF8E3;
+  color: #A28A5F;
+  display: flex;
+  margin-bottom: rem(5);
+  border-radius: rem(3);
+  border: rem(1) solid #FCF3DD;
+  .row-title, .col-title {
+    width: rem(50);
+  }
+}

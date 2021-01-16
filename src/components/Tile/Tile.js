@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Tile = ({ row, col, addToHistory }) => {
+const Tile = ({ row, col, addToHistory, start }) => {
   const mouseHandler = (row, col) => {
+    console.log("START", start)
+    if(!start) return;
     addToHistory(row, col);
   }
   return (

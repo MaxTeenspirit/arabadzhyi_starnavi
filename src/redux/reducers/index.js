@@ -34,6 +34,7 @@ export function historyReducer(state = initialHistoryState, action) {
     }
     case CLEAR_HISTORY: {
       return {
+        ...state,
         history: []
       }
     }
