@@ -1,5 +1,4 @@
 import React from 'react';
-import './TilesContainer.scss';
 import {connect} from 'react-redux';
 import TilesBoard from "../../components/TilesBoard/TilesBoard";
 import { addToHistory } from '../../redux/actions';

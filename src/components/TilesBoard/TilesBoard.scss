@@ -11,7 +11,7 @@
       width: rem(40);
       height: rem(40);
       border: rem(0.5) solid #7D7D7D;
-      &:hover {
+      &.active:hover {
         background-color: #0EA8F4;
       }
     }

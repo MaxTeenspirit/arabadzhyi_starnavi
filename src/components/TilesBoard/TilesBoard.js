@@ -3,14 +3,13 @@ import './TilesBoard.scss';
 import Tile from '../Tile/Tile';
 
 const TilesBoard = ({ tiles, addToHistory, start }) => {
-  console.log('TILES', tiles)
   return (
     <div className='tiles-board'>
-      {tiles.length && tiles.map(row => {
+      {tiles.length && tiles.map((row, index) => {
         return (
-          <div className='row'>
+          <div key={index} className='row'>
             {row.map(tile => {
-              return <Tile row={tile.row} col={tile.col} addToHistory={addToHistory} start={start} />
+              return <Tile key={`${index}${tile.col}`} row={tile.row} col={tile.col} addToHistory={addToHistory} start={start} />
             })}
           </div>
         )

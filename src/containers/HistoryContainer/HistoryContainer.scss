@@ -1,0 +1,12 @@
+@import '../../helpers/pxrem.scss';
+
+.empty-history {
+  width: rem(232);
+  height: rem(225);
+}
+.history-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  align-self: flex-start;
+  margin-left: rem(40);
+}

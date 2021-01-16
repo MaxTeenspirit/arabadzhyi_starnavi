@@ -1,1 +1,10 @@
 @import "../../helpers/pxrem.scss";
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin: rem(50) 0 0 rem(200);
+  main {
+    display: flex;
+  }
+}
